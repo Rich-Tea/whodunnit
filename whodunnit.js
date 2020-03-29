@@ -71,3 +71,26 @@ console.log(`Suspect three is ${suspectThree}.`);
 
 // First this will return: Miss Scarlet, Professor Plum, and Colonel Mustard. This is returned with the block within the first declareAllSuspects function call, where suspectThree is reassigned to Colonel Mustard. This reassignment is possible because it uses let and is performed with the block.
 // Secondly it will return: only Mrs. Peacock, as we are logging suspectThree to the console - suspectThree in this case is the initial let variable defined on line 61. The reason it doesn't return Colonel Mustard as suspectThree is because his reassignment was performed with let within a block (lines 63-66), and let variables within blocks are not accessible outside of that block. Mrs. Peacock was defined with let also, but not inside a block, so Mrs. Peacock as suspectThree is accessible and can be called again.
+
+// Episode 5
+
+const scenario = {
+    murderer: 'Miss Scarlet',
+    room: 'Kitchen',
+    weapon: 'Candle Stick'
+  };
+  
+  const changeWeapon = function(newWeapon) {
+    scenario.weapon = newWeapon;
+  }
+  
+  const declareWeapon = function() {
+    return `The weapon is the ${scenario.weapon}.`;
+  }
+  
+  changeWeapon('Revolver');
+  const verdict = declareWeapon();
+  console.log(verdict);
+
+// This will return: "The weapon is the Revoler". The weapon was changed from 'Candle Stick' (defined on line 80) to 'Revoler' using the changeWeapon function created on line 83. 
+// The weapon can be changed from 'Candle Stick' to 'Revolver' because with changeWeapon we are changing the weapon property of the scenario (scenario.weapon). Even though the scenario object was defined using const, the weapon property within it can be reassigned. This is because we can reassign properties of objects (in this case the weapon property of the scenario object) even when the object is defined with const - what we can't do is reassign the object itself. So the scenario object cannot be reassigned, but the properites held within it can.
