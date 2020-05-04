@@ -94,3 +94,28 @@ const scenario = {
 
 // This will return: "The weapon is the Revoler". The weapon was changed from 'Candle Stick' (defined on line 80) to 'Revoler' using the changeWeapon function created on line 83. 
 // The weapon can be changed from 'Candle Stick' to 'Revolver' because with changeWeapon we are changing the weapon property of the scenario (scenario.weapon). Even though the scenario object was defined using const, the weapon property within it can be reassigned. This is because we can reassign properties of objects (in this case the weapon property of the scenario object) even when the object is defined with const - what we can't do is reassign the object itself. So the scenario object cannot be reassigned, but the properites held within it can.
+
+// Episode 6
+
+let murderer = 'Colonel Mustard';
+
+const changeMurderer = function() {
+  murderer = 'Mr. Green';   
+
+
+  const plotTwist = function() {
+    murderer = 'Mrs. White';
+  }
+
+  plotTwist();
+}
+
+const declareMurderer = function () {
+  return `The murderer is ${murderer}.`;
+}
+
+changeMurderer();
+const verdict = declareMurderer();
+console.log(verdict);
+
+// The verdict will return as Mrs. White. The murderer variable was changed to Mrs. White with the plotTwist function which is nested within the changeMurderer function
